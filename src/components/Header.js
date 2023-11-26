@@ -5,11 +5,20 @@ import {
   YOUTUBE_LOGO,
 } from "../utils/constant";
 
+import { useDispatch } from "react-redux";
+import { toggleSidebar } from "../utils/appSlice";
+
 const Header = () => {
+  const dispatch = useDispatch();
   return (
     <div className="flex justify-between items-center p-4 shadow-lg">
       <section className="flex items-center gap-5 w-3/12">
-        <img className="h-6" alt="hamburger-logo" src={HAMBURGER_LOGO} />
+        <img
+          onClick={() => dispatch(toggleSidebar())}
+          className="h-6 cursor-pointer"
+          alt="hamburger-logo"
+          src={HAMBURGER_LOGO}
+        />
         <img className="h-5" alt="youtube-logo" src={YOUTUBE_LOGO} />
       </section>
       <section className="w-6/12">
@@ -19,7 +28,7 @@ const Header = () => {
             className="ml-5 bg-white w-9/12 p-2 focus:outline-none"
             type="text"
           />
-          <div className="bg-gray-100 rounded-r-full h-10 w-14 flex items-center justify-center cursor-pointer">
+          <div className="bg-gray-100 rounded-r-full h-10 w-14 flex items-center justify-center cursor-pointer border-l-gray-900">
             <img alt="magnifier-logo" className="h-6" src={MAGNIFIER_LOGO} />
           </div>
         </div>
