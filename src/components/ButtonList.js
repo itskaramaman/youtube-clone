@@ -5,8 +5,8 @@ const ButtonList = () => {
 
   return (
     <div className="flex gap-4 whitespace-nowrap">
-      {texts.map((text) => (
-        <Button text={text} />
+      {texts.map((name, index) => (
+        <Button key={index} name={name} />
       ))}
     </div>
   );

@@ -7,36 +7,56 @@ const Sidebar = () => {
   if (isSidebarOpen === false) return;
 
   return (
-    <div className="p-5 shadow-lg w-48">
+    <div className="p-3 shadow-lg w-56 h-full position absolute bg-white overflow-auto">
       <ul>
-        <li className="flex gap-5">
-          <img alt="home-logo" className="h-5" src={HOME_LOGO} />
-          <span>Home</span>
+        <li className="flex gap-5 w-48 h-10 px-3 text-sm font-semibold cursor-pointer rounded-md hover:bg-slate-100 ">
+          <img alt="home-logo" className="h-5 my-auto" src={HOME_LOGO} />
+          <span className="my-auto">Home</span>
         </li>
-        <li className="flex gap-5">
-          <img alt="home-logo" className="h-5 ml-1" src={SHORTS_LOGO} />
-          <span>Shorts</span>
+        <li className="flex gap-5 w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100">
+          <img alt="home-logo" className="h-5 ml-1 my-auto" src={SHORTS_LOGO} />
+          <span className="my-auto">Shorts</span>
         </li>
-        <li className="flex gap-5">
-          <img alt="home-logo" className="h-5" src={SUBSCRIPTION_LOGO} />
-          <span>Subscription</span>
+        <li className="flex gap-5 w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100">
+          <img
+            alt="home-logo"
+            className="h-5 my-auto"
+            src={SUBSCRIPTION_LOGO}
+          />
+          <span className="my-auto">Subscription</span>
         </li>
       </ul>
       <hr className="my-3" />
       <h1 className="font-semibold">Subscription</h1>
-      <ul className="ml-2">
-        <li className="text-sm">Music</li>
-        <li className="text-sm">Sports</li>
-        <li className="text-sm">Gaming</li>
-        <li className="text-sm">Movies</li>
+      <ul>
+        <li className="w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100 py-auto flex items-center">
+          <p>Music</p>
+        </li>
+        <li className="w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100 flex items-center">
+          <p>Sports</p>
+        </li>
+        <li className="w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100 flex items-center">
+          <p>Gaming</p>
+        </li>
+        <li className="w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100 flex items-center">
+          <p>Movies</p>
+        </li>
       </ul>
       <hr className="my-3" />
       <h1 className="font-semibold">Watch Later</h1>
-      <ul className="ml-2">
-        <li className="text-sm">Music</li>
-        <li className="text-sm">Sports</li>
-        <li className="text-sm">Gaming</li>
-        <li className="text-sm">Movies</li>
+      <ul>
+        <li className="w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100 py-auto flex items-center">
+          <p>Music</p>
+        </li>
+        <li className="w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100 flex items-center">
+          <p>Sports</p>
+        </li>
+        <li className="w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100 flex items-center">
+          <p>Gaming</p>
+        </li>
+        <li className="w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100 flex items-center">
+          <p>Movies</p>
+        </li>
       </ul>
       <hr className="my-3" />
     </div>
