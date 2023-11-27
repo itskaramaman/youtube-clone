@@ -11,7 +11,7 @@ const VideoCard = ({ info }) => {
         src={info?.snippet?.thumbnails?.medium?.url}
       />
       <div>
-        <h1 className="font-bold my-1 text-sm">
+        <h1 className="font-extrabold my-1 text-sm">
           {info?.snippet?.title.length < 100
             ? info?.snippet?.title
             : info?.snippet?.title.substring(0, 100) + "..."}
