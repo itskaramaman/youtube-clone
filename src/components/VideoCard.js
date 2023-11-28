@@ -2,7 +2,6 @@ import moment from "moment";
 import { YOUTUBE_DOT_ICON } from "../utils/constant";
 
 const VideoCard = ({ info }) => {
-  console.log(info);
   return (
     <div className="w-96 h-80 cursor-pointer">
       <img

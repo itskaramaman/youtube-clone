@@ -4,7 +4,7 @@ const ButtonList = () => {
   const texts = ["All", "Kapil Sharma", "Diljit Dosanjh"];
 
   return (
-    <div className="flex gap-4 whitespace-nowrap">
+    <div className="flex gap-4 whitespace-nowrap ml-3">
       {texts.map((name, index) => (
         <Button key={index} name={name} />
       ))}

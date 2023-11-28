@@ -1,5 +1,4 @@
 import Sidebar from "./Sidebar";
-import Main from "./Main";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 
@@ -9,7 +8,9 @@ const Body = () => {
   return (
     <div className="flex">
       <Sidebar />
-      <div className={isSidebarOpen && "bg-gray-300 overflow-hidden"}>
+      <div
+        className={isSidebarOpen ? "bg-gray-300 overflow-hidden" : undefined}
+      >
         <Outlet />
       </div>
     </div>
