@@ -7,7 +7,7 @@ const VideoCard = ({ info }) => {
       <img
         className="w-full h-52 object-cover rounded-lg hover:rounded-none"
         alt="thumbnail"
-        src={info?.snippet?.thumbnails?.medium?.url}
+        src={info?.snippet?.thumbnails?.high?.url}
       />
       <div>
         <h1 className="font-extrabold my-1 text-sm">
