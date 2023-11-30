@@ -31,5 +31,7 @@ export const YOUTUBE_CHANNEL_API =
 export const YOUTUBE_SEARCH_SUGGESTION_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
+export const YOUTUBE_COMMENTS_API = `https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}&textFormat=plainText&part=snippet&maxResults=100&videoId=`;
+
 export const YOUTUBE_DOT_ICON =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRECGb0pRXLM6Zrb3WRJyP-aqP47-c2QDOfJ50wPtKokA&s";

@@ -5,14 +5,13 @@ import { useSearchParams } from "react-router-dom";
 import useVideoAndChannelDetails from "../utils/customHooks/useVideoAndChannelDetails";
 import numFormatter from "../utils/numFormatter";
 import moment from "moment";
+import CommentContainer from "./CommentContainer";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
   const [showCompleteDescription, setShowCompleteDescription] = useState(false);
   const [videoDetails, channelDetails] = useVideoAndChannelDetails(videoId);
-  console.log(videoDetails);
-  console.log(channelDetails);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -59,7 +58,7 @@ const WatchPage = () => {
               {videoDetails?.statistics?.viewCount} views Premiered on{" "}
               {moment(videoDetails?.snippet?.publishedAt).format("D MMM YYYY")}
             </p>
-            <p>
+            <>
               {!showCompleteDescription ? (
                 <div>
                   <p>
@@ -85,10 +84,11 @@ const WatchPage = () => {
                   </button>
                 </div>
               )}
-            </p>
+            </>
           </div>
         </div>
       </div>
+      <CommentContainer videoId={videoId} />
     </div>
   );
 };
