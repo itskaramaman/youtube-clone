@@ -87,8 +87,8 @@ const WatchPage = () => {
             </>
           </div>
         </div>
+        <CommentContainer videoId={videoId} />
       </div>
-      <CommentContainer videoId={videoId} />
     </div>
   );
 };
