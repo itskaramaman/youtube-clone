@@ -6,6 +6,7 @@ import {
   YOUTUBE_SEARCH_SUGGESTION_API,
 } from "../utils/constant";
 
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleSidebar } from "../utils/appSlice";
 import { useEffect, useState } from "react";
@@ -16,6 +17,9 @@ const Header = () => {
   const [searchSuggestions, setSearchSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(true);
   const searchCache = useSelector((store) => store.search);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -38,7 +42,11 @@ const Header = () => {
     setSearchSuggestions(data[1]);
   };
 
-  const dispatch = useDispatch();
+  const handleForm = (e) => {
+    e.preventDefault();
+    navigate(`/results?search_query=${searchQuery.replaceAll(" ", "+")}`);
+  };
+
   return (
     <div className="flex justify-between items-center p-4 shadow-lg">
       <section className="flex items-center gap-5 w-3/12">
@@ -53,19 +61,28 @@ const Header = () => {
       <section className="w-6/12">
         <div className="flex justify-between items-center border border-gray-400 rounded-full w-4/5x">
           <div>
-            <input
-              placeholder="Search"
-              className="ml-5 bg-white w-full p-2 focus:outline-none"
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onFocus={() => setShowSuggestions(true)}
-              onBlur={() => setShowSuggestions(false)}
-            />
+            <form onSubmit={(e) => handleForm(e)}>
+              <input
+                placeholder="Search"
+                className="ml-5 bg-white w-full p-2 focus:outline-none"
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </form>
             {showSuggestions && (
               <div className="absolute ml-5 mt-3 rounded-md bg-white shadow-2xl w-[540px]">
-                {searchSuggestions.map((suggestion) => (
-                  <p className="p-1 hover:bg-gray-200">{suggestion}</p>
+                {searchSuggestions.map((suggestion, index) => (
+                  <Link
+                    key={index}
+                    to={`/results?search_query=${suggestion.replaceAll(
+                      " ",
+                      "+"
+                    )}`}
+                    onClick={() => setShowSuggestions(false)}
+                  >
+                    <p className="p-1 hover:bg-gray-200">{suggestion}</p>
+                  </Link>
                 ))}
               </div>
             )}
