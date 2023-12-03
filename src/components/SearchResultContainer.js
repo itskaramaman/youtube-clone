@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { closeSidebar } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_RESULTS_API } from "../utils/constant";
 import SearchResult from "./SearchResult";
@@ -10,8 +10,8 @@ const SearchResultContainer = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const search_query = searchParams.get("search_query");
-
   const dispatch = useDispatch();
+
   useEffect(() => {
     fetchSearchResults();
     dispatch(closeSidebar());
@@ -24,9 +24,11 @@ const SearchResultContainer = () => {
   };
 
   return (
-    <div className="w-screen flex flex-col items-center mt-10">
-      {searchResults.slice(0, 5).map((result) => (
-        <SearchResult result={result} />
+    <div className="w-screen mt-10">
+      {searchResults.map((result) => (
+        <Link key={result.id?.videoId} to={`/watch?v=${result.id?.videoId}`}>
+          <SearchResult result={result} />
+        </Link>
       ))}
     </div>
   );

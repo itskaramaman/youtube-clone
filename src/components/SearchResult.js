@@ -1,12 +1,12 @@
 import moment from "moment";
 
 const SearchResult = ({ result }) => {
-  //   console.log(result);
+  console.log(result);
 
   const { thumbnails, title, publishTime, channelTitle, description } =
     result.snippet;
   return (
-    <div className="w-9/12 mb-5 border border-red-800 flex gap-5">
+    <div className="w-9/12 mb-5 flex gap-5 mx-auto">
       <img
         className="w-[360px] rounded-md"
         alt="thumbnail"
