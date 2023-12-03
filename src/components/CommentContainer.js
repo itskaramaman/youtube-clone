@@ -17,7 +17,7 @@ const CommentContainer = ({ videoId }) => {
 
   return (
     <div className="mt-5">
-      {comments.map((comment) => (
+      {comments?.map((comment) => (
         <Comment
           key={comment.etag}
           comment={comment.snippet?.topLevelComment}

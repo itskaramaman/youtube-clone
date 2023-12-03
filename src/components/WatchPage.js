@@ -6,6 +6,7 @@ import useVideoAndChannelDetails from "../utils/customHooks/useVideoAndChannelDe
 import numFormatter from "../utils/numFormatter";
 import moment from "moment";
 import CommentContainer from "./CommentContainer";
+import LiveChat from "./LiveChat";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -19,7 +20,7 @@ const WatchPage = () => {
   }, []);
 
   return (
-    <div className="py-10 px-20">
+    <div className="py-10 px-20 flex gap-6">
       <div className="w-[640px]">
         <iframe
           className="shadow-xl rounded-xl"
@@ -89,6 +90,7 @@ const WatchPage = () => {
         </div>
         <CommentContainer videoId={videoId} />
       </div>
+      <LiveChat />
     </div>
   );
 };

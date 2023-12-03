@@ -8,7 +8,7 @@ const Sidebar = () => {
   if (isSidebarOpen === false) return;
 
   return (
-    <div className="p-3 shadow-lg w-56 h-full position absolute bg-white overflow-auto">
+    <div className="p-3 shadow-lg w-56 h-full fixed bg-white overflow-auto">
       <ul>
         <Link to="/">
           <li className="flex gap-5 w-48 h-10 px-3 text-sm font-semibold cursor-pointer rounded-md hover:bg-slate-100 ">
