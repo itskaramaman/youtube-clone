@@ -5,7 +5,6 @@ import moment from "moment";
 import { useState } from "react";
 
 const Comment = ({ comment, totalReplyCount, replies }) => {
-  console.log(comment, totalReplyCount, replies);
   const [showReplies, setShowReplies] = useState(false);
   const {
     authorProfileImageUrl,
@@ -17,7 +16,6 @@ const Comment = ({ comment, totalReplyCount, replies }) => {
     updatedAt,
   } = comment.snippet;
 
-  console.log(comment.snippet?.totalReplyCount);
   return (
     <div className="flex gap-4 mb-8">
       <div>

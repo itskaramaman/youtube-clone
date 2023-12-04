@@ -7,20 +7,26 @@ import numFormatter from "../utils/numFormatter";
 import moment from "moment";
 import CommentContainer from "./CommentContainer";
 import LiveChat from "./LiveChat";
+import useSearchResults from "../utils/customHooks/useSearchResults";
+import SearchResult from "./SearchResult";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId = searchParams.get("v");
   const [showCompleteDescription, setShowCompleteDescription] = useState(false);
   const [videoDetails, channelDetails] = useVideoAndChannelDetails(videoId);
-  const dispatch = useDispatch();
 
+  const searchResults = useSearchResults(
+    videoDetails?.snippet?.title?.replaceAll(" ", "+")
+  );
+  const dispatch = useDispatch();
+  console.log(searchResults);
   useEffect(() => {
     dispatch(closeSidebar());
   }, []);
 
   return (
-    <div className="py-10 px-20 flex gap-6">
+    <div className="py-10 px-20 flex">
       <div className="w-[640px]">
         <iframe
           className="shadow-xl rounded-xl"
@@ -88,9 +94,19 @@ const WatchPage = () => {
             </>
           </div>
         </div>
-        <CommentContainer videoId={videoId} />
+        {videoDetails?.snippet?.liveBroadcastContent === "none" && (
+          <CommentContainer videoId={videoId} />
+        )}
       </div>
-      <LiveChat />
+      {videoDetails?.snippet?.liveBroadcastContent === "live" ? (
+        <LiveChat />
+      ) : (
+        <div className="w-3/12">
+          {searchResults?.map((result) => (
+            <SearchResult result={result} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

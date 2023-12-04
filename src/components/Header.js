@@ -45,6 +45,7 @@ const Header = () => {
   const handleForm = (e) => {
     e.preventDefault();
     navigate(`/results?search_query=${searchQuery.replaceAll(" ", "+")}`);
+    setShowSuggestions(false);
   };
 
   return (
@@ -56,7 +57,9 @@ const Header = () => {
           alt="hamburger-logo"
           src={HAMBURGER_LOGO}
         />
-        <img className="h-5" alt="youtube-logo" src={YOUTUBE_LOGO} />
+        <Link to="/">
+          <img className="h-5" alt="youtube-logo" src={YOUTUBE_LOGO} />
+        </Link>
       </section>
       <section className="w-6/12">
         <div className="flex justify-between items-center border border-gray-400 rounded-full w-4/5x">

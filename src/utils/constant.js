@@ -15,7 +15,7 @@ export const YOUTUBE_SEARCH_SUGGESTION_API =
 
 export const YOUTUBE_COMMENTS_API = `https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}&textFormat=plainText&part=snippet&part=replies&maxResults=100&videoId=`;
 
-export const YOUTUBE_SEARCH_RESULTS_API = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=${API_KEY}&q=`;
+export const YOUTUBE_SEARCH_RESULTS_API = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=21&key=${API_KEY}&q=`;
 
 // APP ICONS
 export const HAMBURGER_LOGO =

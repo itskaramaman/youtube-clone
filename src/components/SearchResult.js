@@ -8,7 +8,7 @@ const SearchResult = ({ result }) => {
   return (
     <div className="w-9/12 mb-5 flex gap-5 mx-auto">
       <img
-        className="w-[360px] rounded-md"
+        className="max-w-[360px] rounded-md"
         alt="thumbnail"
         src={thumbnails?.medium?.url}
       />
