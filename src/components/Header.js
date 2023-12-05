@@ -49,7 +49,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center p-4 shadow-lg">
+    <div className="flex justify-between items-center px-4 py-2 fixed w-full bg-white">
       <section className="flex items-center gap-5 w-3/12">
         <img
           onClick={() => dispatch(toggleSidebar())}

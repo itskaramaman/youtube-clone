@@ -1,14 +1,29 @@
 import { HOME_LOGO, SHORTS_LOGO, SUBSCRIPTION_LOGO } from "../utils/constant";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { toggleSidebar } from "../utils/appSlice";
+import { HAMBURGER_LOGO } from "../utils/constant";
+import { YOUTUBE_LOGO } from "../utils/constant";
 
 const Sidebar = () => {
   const isSidebarOpen = useSelector((store) => store.app.isSidebarOpen);
+  const dispatch = useDispatch();
 
   if (isSidebarOpen === false) return;
 
   return (
-    <div className="p-3 shadow-lg w-56 h-full fixed bg-white overflow-auto">
+    <div className="px-4 shadow-lg w-60 h-full fixed bg-white overflow-auto z-50">
+      <section className="flex items-center gap-5 py-4">
+        <img
+          onClick={() => dispatch(toggleSidebar())}
+          className="h-6 cursor-pointer"
+          alt="hamburger-logo"
+          src={HAMBURGER_LOGO}
+        />
+        <Link to="/">
+          <img className="h-5" alt="youtube-logo" src={YOUTUBE_LOGO} />
+        </Link>
+      </section>
       <ul>
         <Link to="/">
           <li className="flex gap-5 w-48 h-10 px-3 text-sm font-semibold cursor-pointer rounded-md hover:bg-slate-100 ">

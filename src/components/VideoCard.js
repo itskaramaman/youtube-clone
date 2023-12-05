@@ -1,7 +1,9 @@
 import moment from "moment";
-import { YOUTUBE_DOT_ICON } from "../utils/constant";
+import useChannelDetails from "../utils/customHooks/useChannelDetails";
 
 const VideoCard = ({ info }) => {
+  const channelDetails = useChannelDetails(info.snippet?.channelId);
+  console.log(channelDetails);
   return (
     <div className="w-96 h-80 cursor-pointer">
       <img
@@ -9,23 +11,32 @@ const VideoCard = ({ info }) => {
         alt="thumbnail"
         src={info?.snippet?.thumbnails?.high?.url}
       />
-      <div>
-        <h1 className="font-extrabold my-1 text-sm">
-          {info?.snippet?.title.length < 100
-            ? info?.snippet?.title
-            : info?.snippet?.title.substring(0, 100) + "..."}
-        </h1>
-        <ul className="text-gray-500 text-sm font-semibold">
-          <li>{info?.snippet?.channelTitle}</li>
-          <li className="flex gap-2 items-center">
-            {info?.statistics?.viewCount < 1000
-              ? info?.statistics?.viewCount < 1000
-              : (info?.statistics?.viewCount % 1000) + "K"}
-            <img alt="youtube-dot" className="h-2" src={YOUTUBE_DOT_ICON} />
-            {moment(info?.snippet?.publishedAt).fromNow()}
-          </li>
-        </ul>
-      </div>
+
+      <section className="flex gap-3 my-2 items-start">
+        <img
+          className="h-10 w-10 rounded-full"
+          alt="channel"
+          src={channelDetails?.snippet?.thumbnails?.default?.url}
+        />
+        <div>
+          <h1 className="font-extrabold">
+            {info?.snippet?.title.length < 80
+              ? info?.snippet?.title
+              : info?.snippet?.title.substring(0, 80) + "..."}
+          </h1>
+          <ul className="text-gray-500 text-sm font-semibold">
+            <li className="mt-1">{info?.snippet?.channelTitle}</li>
+            <li className="flex gap-1 items-center">
+              {info?.statistics?.viewCount < 1000
+                ? info?.statistics?.viewCount < 1000
+                : (info?.statistics?.viewCount % 1000) + "K"}{" "}
+              views
+              <p>&#x2022;</p>
+              {moment(info?.snippet?.publishedAt).fromNow()}
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   );
 };
