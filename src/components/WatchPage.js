@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { closeSidebar } from "../utils/appSlice";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import useVideoAndChannelDetails from "../utils/customHooks/useVideoAndChannelDetails";
 import numFormatter from "../utils/numFormatter";
 import moment from "moment";
 import CommentContainer from "./CommentContainer";
 import LiveChat from "./LiveChat";
 import useSearchResults from "../utils/customHooks/useSearchResults";
-import WatchPageList from "./WatchPageList";
+import WatchPageItem from "./WatchPageItem";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -103,7 +103,12 @@ const WatchPage = () => {
       ) : (
         <div className="w-3/12">
           {searchResults?.map((result) => (
-            <WatchPageList result={result} />
+            <Link
+              key={result?.id?.videoId}
+              to={`/watch?v=${result?.id?.videoId}`}
+            >
+              <WatchPageItem result={result} />
+            </Link>
           ))}
         </div>
       )}
