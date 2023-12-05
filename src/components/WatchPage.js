@@ -8,7 +8,7 @@ import moment from "moment";
 import CommentContainer from "./CommentContainer";
 import LiveChat from "./LiveChat";
 import useSearchResults from "../utils/customHooks/useSearchResults";
-import SearchResult from "./SearchResult";
+import WatchPageList from "./WatchPageList";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -26,7 +26,7 @@ const WatchPage = () => {
   }, []);
 
   return (
-    <div className="py-10 px-20 flex">
+    <div className="py-10 px-20 flex gap-5">
       <div className="w-[640px]">
         <iframe
           className="shadow-xl rounded-xl"
@@ -103,7 +103,7 @@ const WatchPage = () => {
       ) : (
         <div className="w-3/12">
           {searchResults?.map((result) => (
-            <SearchResult result={result} />
+            <WatchPageList result={result} />
           ))}
         </div>
       )}
