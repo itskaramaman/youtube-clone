@@ -3,11 +3,11 @@ import useChannelDetails from "../utils/customHooks/useChannelDetails";
 
 const VideoCard = ({ info }) => {
   const channelDetails = useChannelDetails(info.snippet?.channelId);
-  console.log(channelDetails);
+
   return (
-    <div className="w-96 h-80 cursor-pointer">
+    <div className="w-[360px] h-80 cursor-pointer">
       <img
-        className="w-full h-52 object-cover rounded-lg hover:rounded-none"
+        className="w-full h-48 object-cover rounded-lg hover:rounded-none"
         alt="thumbnail"
         src={info?.snippet?.thumbnails?.high?.url}
       />
@@ -26,7 +26,7 @@ const VideoCard = ({ info }) => {
           </h1>
           <ul className="text-gray-500 text-sm font-semibold">
             <li className="mt-1">{info?.snippet?.channelTitle}</li>
-            <li className="flex gap-1 items-center">
+            <li className="flex gap-1 items-center text-xs">
               {info?.statistics?.viewCount < 1000
                 ? info?.statistics?.viewCount < 1000
                 : (info?.statistics?.viewCount % 1000) + "K"}{" "}

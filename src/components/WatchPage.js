@@ -20,13 +20,12 @@ const WatchPage = () => {
     videoDetails?.snippet?.title?.replaceAll(" ", "+")
   );
   const dispatch = useDispatch();
-  console.log(searchResults);
   useEffect(() => {
     dispatch(closeSidebar());
   }, []);
 
   return (
-    <div className="py-10 px-20 flex gap-5">
+    <div className=" mt-10 py-10 px-20 flex gap-5">
       <div className="w-[640px]">
         <iframe
           className="shadow-xl rounded-xl"
