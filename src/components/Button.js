@@ -7,7 +7,6 @@ const Button = ({ name, id, activeVideoCategory, setActiveVideoCategory }) => {
   const dispatch = useDispatch();
 
   const handleButtonClick = async () => {
-    console.log(id);
     let url = `${YOUTUBE_VIDEOS_API}&videoCategoryId=${id}`;
     const response = await fetch(url);
     const data = await response.json();

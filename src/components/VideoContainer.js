@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import useInfiniteScroll from "../utils/customHooks/useInfinteScroll";
 import { useDispatch, useSelector } from "react-redux";
 import { addVideos } from "../utils/videoSlice";
+import ShimmerUI from "./ShimmerUI";
 
 const VideoContainer = () => {
   const videos = useSelector((store) => store.videos);
@@ -26,6 +27,8 @@ const VideoContainer = () => {
     nextPageTokenRef.current = data.nextPageToken;
     dispatch(addVideos([...videos, ...data.items]));
   };
+
+  if (!videos || videos.length === 0) return <ShimmerUI />;
 
   return (
     <div className="mt-24 flex flex-wrap gap-5 my-2 px-3">
