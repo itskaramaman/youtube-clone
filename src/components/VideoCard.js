@@ -1,16 +1,32 @@
 import moment from "moment";
 import useChannelDetails from "../utils/customHooks/useChannelDetails";
+import { useState } from "react";
 
 const VideoCard = ({ info }) => {
+  const [showIframe, setShowIframe] = useState(false);
   const channelDetails = useChannelDetails(info.snippet?.channelId);
 
   return (
-    <div className="w-[360px] h-80 cursor-pointer">
-      <img
-        className="w-full h-48 object-cover rounded-lg hover:rounded-none"
-        alt="thumbnail"
-        src={info?.snippet?.thumbnails?.high?.url}
-      />
+    <div
+      className="w-[360px] h-80 cursor-pointer"
+      onPointerEnter={() => setShowIframe(true)}
+      onPointerLeave={() => setShowIframe(false)}
+    >
+      {showIframe ? (
+        <iframe
+          className="shadow-xl"
+          width="360"
+          height="192"
+          src={`https://www.youtube.com/embed/${info.id}?rel=0&amp;autoplay=1&mute=1&controls=0`}
+          title="YouTube video player"
+        ></iframe>
+      ) : (
+        <img
+          className="w-full h-48 object-cover rounded-lg hover:rounded-none"
+          alt="thumbnail"
+          src={info?.snippet?.thumbnails?.high?.url}
+        />
+      )}
 
       <section className="flex gap-3 my-2 items-start">
         <img
