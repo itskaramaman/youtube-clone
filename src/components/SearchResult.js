@@ -13,12 +13,14 @@ const SearchResult = ({ result }) => {
         src={thumbnails?.medium?.url}
       />
       <div>
-        <h1 className="text-lg font-extrabold">{title}</h1>
-        <p className="text-xs text-gray-700">{moment(publishTime).fromNow()}</p>
-        <p className="text-sm text-gray-700 font-semibold my-2">
+        <h1 className="text-lg font-medium font-sans line-clamp-2">{title}</h1>
+        <p className="text-xs font-sans text-gray-700">
+          {moment(publishTime).fromNow()}
+        </p>
+        <p className="text-sm font-medium text-gray-700 font-sans my-2">
           {channelTitle}
         </p>
-        <p className="text-sm text-gray-700">{description}</p>
+        <p className="text-sm text-gray-700 font-sans">{description}</p>
       </div>
     </div>
   );

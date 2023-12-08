@@ -24,7 +24,7 @@ const SearchResultContainer = () => {
   };
 
   return (
-    <div className="w-full mt-10">
+    <div className="w-full mt-10 py-10">
       {searchResults.map((result) => (
         <Link key={result.id?.videoId} to={`/watch?v=${result.id?.videoId}`}>
           <SearchResult result={result} />
