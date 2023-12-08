@@ -9,19 +9,19 @@ const MinimalSidebar = () => {
         <Link to="/">
           <li className="p-4 hover:bg-gray-100 rounded-md flex flex-col items-center cursor-pointer">
             <img className="w-5" alt="home" src={HOME_LOGO} />
-            <small className="text-xs">Home</small>
+            <small className="text-[.66rem] font-sans">Home</small>
           </li>
         </Link>
         <Link to="/shorts">
           <li className="p-4 hover:bg-gray-100 rounded-md flex flex-col items-center cursor-pointer">
             <SHORTS className="h-5" />
-            <small className="text-xs">Shorts</small>
+            <small className="text-[.66rem] font-sans">Shorts</small>
           </li>
         </Link>
         <Link to="/subscriptions">
           <li className="p-4 hover:bg-gray-100 rounded-md flex flex-col items-center cursor-pointer">
             <img className="w-5" alt="home" src={SUBSCRIPTION_LOGO} />
-            <small className="text-[.66rem]">Subscription</small>
+            <small className="text-[.66rem] font-sans">Subscription</small>
           </li>
         </Link>
       </ul>

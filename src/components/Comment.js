@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { YOUTUBE_LIKE_ICON, YOUTUBE_UNLIKE_ICON } from "../utils/constant";
+import { ReactComponent as LikeSVG } from "../icons/thumbs-up.svg";
+import { ReactComponent as UnlikeSVG } from "../icons/thumbs-down.svg";
 import numFormatter from "../utils/numFormatter";
 import moment from "moment";
 import { useState } from "react";
@@ -17,40 +18,36 @@ const Comment = ({ comment, totalReplyCount, replies }) => {
   } = comment.snippet;
 
   return (
-    <div className="flex gap-4 mb-8">
-      <div>
+    <div className="flex mb-8">
+      <div className="w-[10%]">
         {authorProfileImageUrl ? (
           <img
-            className="h-10 w-10 rounded-full object-cover"
+            className="w-10 rounded-full object-cover"
             alt="author-profile"
             src={authorProfileImageUrl}
           />
         ) : (
-          <span className="h-10 w-10 rounded-full bg-red-500">
+          <span className="w-10 rounded-full bg-red-500">
             {authorDisplayName.substring(0, 1).toUpperCase()}
           </span>
         )}
       </div>
-      <div>
+      <div className="w-[90%]">
         <Link to={authorChannelUrl} className="flex items-baseline gap-1">
-          <h4 className="font-bold">{authorDisplayName} </h4>
+          <h4 className="font-semibold text-sm">{authorDisplayName} </h4>
           <span className="text-xs text-gray-600 font-semibold">
             {updatedAt !== publishedAt
               ? moment(updatedAt).fromNow() + " (edited)"
               : moment(publishedAt).fromNow()}
           </span>
         </Link>
-        <p className="text-sm">{textDisplay}</p>
+        <p className="text-sm mt-1 sans">{textDisplay}</p>
         <p className="flex items-center mt-2">
-          <img className="h-4 w-4 mr-1" alt="like" src={YOUTUBE_LIKE_ICON} />
+          <LikeSVG className="mr-1" />
           <span className="text-xs text-gray-600 font-semibold">
             {numFormatter(likeCount)}
           </span>
-          <img
-            className="h-4 w-4 ml-3"
-            alt="unlike"
-            src={YOUTUBE_UNLIKE_ICON}
-          />
+          <UnlikeSVG className="ml-3" />
         </p>
         {totalReplyCount > 0 && (
           <div className="mt-2">

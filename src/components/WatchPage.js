@@ -32,13 +32,13 @@ const WatchPage = () => {
           className="shadow-xl rounded-xl"
           width="640"
           height="360"
-          src={`https://www.youtube.com/embed/${videoId}?si=fatq_yGSVigalmaC`}
+          src={`https://www.youtube.com/embed/${videoId}?si=fatq_yGSVigalmaC&amp;autoplay=1`}
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         ></iframe>
         <div>
-          <h1 className="my-2 font-extrabold text-lg line-clamp-2">
+          <h1 className="my-2 font-medium font-sans text-lg line-clamp-2">
             {videoDetails?.snippet?.title}
           </h1>
           <div className="flex items-center gap-4">
@@ -62,7 +62,8 @@ const WatchPage = () => {
           </div>
           <div className="bg-gray-100 hover:bg-gray-200 whitespace-pre-line p-3 rounded-lg mt-4 text-sm">
             <p className="font-bold">
-              {videoDetails?.statistics?.viewCount} views Premiered on{" "}
+              {numFormatter(videoDetails?.statistics?.viewCount)} views
+              Premiered on{" "}
               {moment(videoDetails?.snippet?.publishedAt).format("D MMM YYYY")}
             </p>
             <>

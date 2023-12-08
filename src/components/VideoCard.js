@@ -17,7 +17,7 @@ const VideoCard = ({ info }) => {
           className="shadow-xl"
           width="360"
           height="192"
-          src={`https://www.youtube.com/embed/${info.id}?rel=0&amp;autoplay=1&mute=1&controls=0`}
+          src={`https://www.youtube.com/embed/${info.id}?rel=0&autoplay=1&mute=1&controls=0`}
           title="YouTube video player"
         ></iframe>
       ) : (
@@ -35,13 +35,11 @@ const VideoCard = ({ info }) => {
           src={channelDetails?.snippet?.thumbnails?.default?.url}
         />
         <div>
-          <h1 className="font-extrabold">
-            {info?.snippet?.title.length < 80
-              ? info?.snippet?.title
-              : info?.snippet?.title.substring(0, 80) + "..."}
+          <h1 className="font-sans font-semibold line-clamp-2">
+            {info?.snippet?.title}
           </h1>
           <ul className="text-gray-500 text-sm font-semibold">
-            <li className="mt-1">{info?.snippet?.channelTitle}</li>
+            <li className="font-sans mb-1">{info?.snippet?.channelTitle}</li>
             <li className="flex gap-1 items-center text-xs">
               {info?.statistics?.viewCount < 1000
                 ? info?.statistics?.viewCount < 1000
