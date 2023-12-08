@@ -9,10 +9,12 @@ const useSearchResults = (search_query) => {
   }, [search_query]);
 
   const fetchSearchResults = async () => {
+    if (!search_query) return;
     const response = await fetch(YOUTUBE_SEARCH_RESULTS_API + search_query);
     const data = await response.json();
     setSearchResults(data.items);
   };
+
   return searchResults;
 };
 

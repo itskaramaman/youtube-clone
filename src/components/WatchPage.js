@@ -19,6 +19,7 @@ const WatchPage = () => {
   const searchResults = useSearchResults(
     videoDetails?.snippet?.title?.replaceAll(" ", "+")
   );
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(closeSidebar());

@@ -35,18 +35,22 @@ const Sidebar = () => {
             <span className="my-auto">Home</span>
           </li>
         </Link>
-        <li className="flex gap-5 w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100">
-          <Shorts className="h-5 my-auto" />
-          <span className="my-auto">Shorts</span>
-        </li>
-        <li className="flex gap-5 w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100">
-          <img
-            alt="home-logo"
-            className="h-5 my-auto"
-            src={SUBSCRIPTION_LOGO}
-          />
-          <span className="my-auto">Subscription</span>
-        </li>
+        <Link to="/shorts">
+          <li className="flex gap-5 w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100">
+            <Shorts className="h-5 my-auto" />
+            <span className="my-auto">Shorts</span>
+          </li>
+        </Link>
+        <Link to="/subscriptions">
+          <li className="flex gap-5 w-48 h-10 px-3 text-sm rounded-md font-semibold cursor-pointer hover:bg-slate-100">
+            <img
+              alt="home-logo"
+              className="h-5 my-auto"
+              src={SUBSCRIPTION_LOGO}
+            />
+            <span className="my-auto">Subscription</span>
+          </li>
+        </Link>
       </ul>
       <hr className="my-3" />
       <div className="ml-3">
