@@ -1,7 +1,7 @@
 import moment from "moment";
 
 const WatchPageItem = ({ result }) => {
-  console.log(result);
+  // console.log(result);
   const { thumbnails, title, publishTime, channelTitle } = result.snippet;
 
   return (
@@ -16,7 +16,7 @@ const WatchPageItem = ({ result }) => {
           <h1 className="text-sm font-medium line-clamp-2 font-sans">
             {title}
           </h1>
-          <p className="text-xs text-gray-600 font-semibold my-2 line-clamp-1">
+          <p className="text-xs text-gray-600 font-semibold my-1 line-clamp-1">
             {channelTitle}
           </p>
           <p className="text-xs text-gray-700">

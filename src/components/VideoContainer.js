@@ -3,11 +3,14 @@ import { YOUTUBE_VIDEOS_API } from "../utils/constant";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
 import useInfiniteScroll from "../utils/customHooks/useInfinteScroll";
+import { useDispatch, useSelector } from "react-redux";
+import { addVideos } from "../utils/videoSlice";
 
 const VideoContainer = () => {
-  const [videos, setVideos] = useState([]);
+  const videos = useSelector((store) => store.videos);
   const infiniteScroll = useInfiniteScroll();
   const nextPageTokenRef = useRef(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchPopularVideos();
@@ -21,7 +24,7 @@ const VideoContainer = () => {
     const response = await fetch(url);
     const data = await response.json();
     nextPageTokenRef.current = data.nextPageToken;
-    setVideos([...videos, ...data.items]);
+    dispatch(addVideos([...videos, ...data.items]));
   };
 
   return (
