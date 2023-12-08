@@ -13,14 +13,9 @@ const WatchPageItem = ({ result }) => {
           src={thumbnails?.medium?.url}
         />
         <div>
-          <h1 className="text-sm font-extrabold">
-            {title.length < 60 ? title : title.substring(0, 60)}...
-          </h1>
-          <p className="text-xs text-gray-600 font-semibold my-2">
-            {channelTitle.length < 37
-              ? channelTitle
-              : channelTitle.substring(0, 37)}
-            ...
+          <h1 className="text-sm font-extrabold line-clamp-2">{title}</h1>
+          <p className="text-xs text-gray-600 font-semibold my-2 line-clamp-1">
+            {channelTitle}
           </p>
           <p className="text-xs text-gray-700">
             {moment(publishTime).fromNow()}

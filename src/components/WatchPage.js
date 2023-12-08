@@ -38,7 +38,7 @@ const WatchPage = () => {
           allowFullScreen
         ></iframe>
         <div>
-          <h1 className="my-2 font-extrabold text-lg">
+          <h1 className="my-2 font-extrabold text-lg line-clamp-2">
             {videoDetails?.snippet?.title}
           </h1>
           <div className="flex items-center gap-4">
@@ -48,7 +48,7 @@ const WatchPage = () => {
               src={channelDetails?.snippet?.thumbnails?.high?.url}
             />
             <div>
-              <p className="font-extrabold">
+              <p className="font-bold line-clamp-1">
                 {videoDetails?.snippet?.channelTitle}
               </p>
               <p className="text-xs text-gray-500">
