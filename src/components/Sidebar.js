@@ -1,4 +1,4 @@
-import { HOME_LOGO, SHORTS_LOGO, SUBSCRIPTION_LOGO } from "../utils/constant";
+import { HOME_LOGO, SUBSCRIPTION_LOGO } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toggleSidebar } from "../utils/appSlice";
