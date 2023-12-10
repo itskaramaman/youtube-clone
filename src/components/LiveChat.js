@@ -3,6 +3,7 @@ import ChatMessage from "./ChatMessage";
 import { useDispatch, useSelector } from "react-redux";
 import { addMessage } from "../utils/chatSlice";
 import { ReactComponent as SendLogo } from "../icons/send.svg";
+import liveMessages from "../utils/liveMessages";
 
 const LiveChat = () => {
   const [showLiveChat, setShowLiveChat] = useState(false);
@@ -18,10 +19,18 @@ const LiveChat = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      dispatch(addMessage({ name: "John", message: "API polling" }));
-    }, 1500);
-    return () => clearInterval(interval);
+    const intervals = [];
+    liveMessages.forEach((message) => {
+      const interval = setInterval(() => {
+        console.log("setInterval called");
+        dispatch(addMessage(message));
+      }, 3000);
+      intervals.push(interval);
+    });
+
+    return () => {
+      intervals.forEach((interval) => clearInterval(interval));
+    };
   }, []);
 
   return (
@@ -42,6 +51,7 @@ const LiveChat = () => {
             {messages.map((message, index) => (
               <ChatMessage
                 key={index}
+                thumbnail={message.thumbnail}
                 name={message.name}
                 message={message.message}
               />

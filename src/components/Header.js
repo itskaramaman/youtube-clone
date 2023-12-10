@@ -49,7 +49,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center px-4 py-2 fixed w-full bg-white">
+    <div className="flex justify-between items-center px-4 py-2 fixed w-full bg-white z-40">
       <section className="flex items-center gap-5 w-3/12">
         <img
           onClick={() => dispatch(toggleSidebar())}
@@ -74,7 +74,7 @@ const Header = () => {
               />
             </form>
             {showSuggestions && (
-              <div className="absolute ml-5 mt-3 rounded-md bg-white shadow-2xl w-[540px]">
+              <div className="absolute ml-5 mt-3 rounded-md bg-white shadow-2xl w-[540px] z-40">
                 {searchSuggestions.map((suggestion, index) => (
                   <Link
                     key={index}
