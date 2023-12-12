@@ -11,7 +11,7 @@ export const YOUTUBE_CHANNEL_API =
   "https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics";
 
 export const YOUTUBE_SEARCH_SUGGESTION_API =
-  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+  "https://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
 
 export const YOUTUBE_COMMENTS_API = `https://www.googleapis.com/youtube/v3/commentThreads?key=${API_KEY}&textFormat=plainText&part=snippet&part=replies&maxResults=100&order=relevance&videoId=`;
 

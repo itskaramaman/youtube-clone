@@ -1,8 +1,6 @@
 import moment from "moment";
 
 const SearchResult = ({ result }) => {
-  console.log(result);
-
   const { thumbnails, title, publishTime, channelTitle, description } =
     result.snippet;
   return (

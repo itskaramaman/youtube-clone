@@ -63,7 +63,7 @@ const Header = () => {
       </section>
       <section className="w-6/12">
         <div className="flex justify-between items-center border border-gray-400 rounded-full w-4/5x">
-          <div>
+          <div className="w-full">
             <form onSubmit={(e) => handleForm(e)}>
               <input
                 placeholder="Search"

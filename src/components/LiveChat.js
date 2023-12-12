@@ -22,7 +22,6 @@ const LiveChat = () => {
     const intervals = [];
     liveMessages.forEach((message) => {
       const interval = setInterval(() => {
-        console.log("setInterval called");
         dispatch(addMessage(message));
       }, 3000);
       intervals.push(interval);

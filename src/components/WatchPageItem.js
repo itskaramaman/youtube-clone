@@ -1,7 +1,6 @@
 import moment from "moment";
 
 const WatchPageItem = ({ result }) => {
-  // console.log(result);
   const { thumbnails, title, publishTime, channelTitle } = result.snippet;
 
   return (
