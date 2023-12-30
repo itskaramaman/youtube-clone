@@ -29,6 +29,7 @@ const Header = () => {
       } else {
         fetchSuggestions();
         dispatch(cacheResult({ key: searchQuery, value: searchSuggestions }));
+        setShowSuggestions(true);
       }
     }, 200);
     return () => {

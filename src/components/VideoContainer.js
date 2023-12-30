@@ -31,7 +31,7 @@ const VideoContainer = () => {
   if (!videos || videos.length === 0) return <ShimmerUI />;
 
   return (
-    <div className="mt-24 flex flex-wrap gap-4 my-2 px-3">
+    <div className="mt-24 flex flex-wrap gap-5 my-2 px-3">
       {videos.map((video) => (
         <Link key={video.id} to={`/watch?v=${video.id}`}>
           <VideoCard info={video} />

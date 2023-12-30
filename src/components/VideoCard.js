@@ -14,8 +14,7 @@ const VideoCard = ({ info }) => {
     >
       {showIframe ? (
         <iframe
-          className="shadow-xl"
-          width="360"
+          className="shadow-xl w-full"
           height="192"
           src={`https://www.youtube.com/embed/${info.id}?rel=0&autoplay=1&mute=1&controls=0`}
           title="YouTube video player"
