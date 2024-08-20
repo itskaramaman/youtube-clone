@@ -2,11 +2,11 @@ import categories from "../utils/videoCategories";
 
 const ShimmerUI = () => {
   return (
-    <div className="mt-24 flex flex-wrap gap-5 my-2 px-3">
+    <div className="mt-24 flex flex-wrap gap-4 px-4 justify-start">
       {categories.map((category) => (
         <div
           key={category.id}
-          className="w-[360px] h-80 cursor-pointer animate-pulse"
+          className="flex-none w-full max-w-[320px] min-w-[240px] h-auto cursor-pointer animate-pulse"
         >
           <div className="w-full h-48 bg-gray-200 rounded-lg"></div>
           <section className="flex gap-3 my-2 items-start">

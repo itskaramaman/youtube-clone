@@ -6,7 +6,7 @@ const ButtonList = () => {
   const [activeVideoCategory, setActiveVideoCategory] = useState(0);
 
   return (
-    <div className="flex gap-4 py-2 ml-8 overflow-auto whitespace-nowrap fixed top-14 left-12 right-0 bg-white w-full z-10">
+    <div className="flex gap-4 left-9 py-2 ml-8 overflow-auto whitespace-nowrap fixed top-14  right-0 bg-white w-full z-10">
       <Button
         name="All"
         id={0}

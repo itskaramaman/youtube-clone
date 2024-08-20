@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { YOUTUBE_VIDEOS_API } from "../utils/constant";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
@@ -24,6 +24,9 @@ const VideoContainer = () => {
     }
     const response = await fetch(url);
     const data = await response.json();
+
+    console.log(data);
+
     nextPageTokenRef.current = data.nextPageToken;
     dispatch(addVideos([...videos, ...data.items]));
   };
@@ -31,7 +34,7 @@ const VideoContainer = () => {
   if (!videos || videos.length === 0) return <ShimmerUI />;
 
   return (
-    <div className="mt-24 flex flex-wrap gap-5 my-2 px-3">
+    <div className="mt-24 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
       {videos.map((video) => (
         <Link key={video.id} to={`/watch?v=${video.id}`}>
           <VideoCard info={video} />
