@@ -21,7 +21,7 @@ const VideoCard = ({ info }) => {
         ></iframe>
       ) : (
         <img
-          className="w-full h-auto object-cover aspect-video rounded-md"
+          className="w-full h-auto object-cover aspect-video rounded-lg"
           alt="thumbnail"
           src={info?.snippet?.thumbnails?.high?.url}
         />
